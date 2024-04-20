@@ -40,16 +40,7 @@ const createFolders = (dir) => {
 
 // Create files inside the specified directory
 const createFiles = (dir) => {
-  const files = [
-    "constant.js",
-    ".prettierignore",
-    ".prettierrc",
-    ".env",
-    "sample.env",
-    "README.md",
-    "index.js",
-    "app.js",
-  ];
+  const files = ["constant.js", "index.js", "app.js"];
   files.forEach((file) => {
     fs.writeFile(`${dir}/${file}`, "", (err) => {
       if (err) throw err;
@@ -73,19 +64,47 @@ const initializeProject = (folderName) => {
     // Change current working directory to the project folder
     process.chdir(projectPath);
 
-    runCommand("npm init -y", projectPath);
-    runCommand(
-      `npm i bcrypt cookie-parser cors dotenv express express-rate-limit express-validator helmet jsonwebtoken mongoose morgan winston`,
-      projectPath
-    );
+    // Create src folder
+    fs.mkdir(`${projectPath}/src`, { recursive: true }, (err) => {
+      if (err) throw err;
+      console.log(`Created src folder`);
 
-    // Wait for npm packages to install before creating folders/files
-    setTimeout(() => {
-      createFolders(projectPath);
-      createFiles(projectPath);
-    }, 5000); // Adjust delay as needed
+      // Create other folders inside src
+      createFolders(`${projectPath}/src`);
+
+      // Create files inside src
+      createFiles(`${projectPath}/src`);
+
+      // Create package.json, .env, .prettierignore, and .prettierrc files outside src
+      fs.writeFile(`${projectPath}/package.json`, JSON.stringify({
+        "name": "your-project-name",
+        "version": "1.0.0",
+        "description": "Your project description",
+        "main": "index.js",
+        "scripts": {
+          "start": "node index.js"
+        },
+        "dependencies": {}
+      }, null, 2), (err) => {
+        if (err) throw err;
+        console.log(`Created package.json file`);
+
+        // Install dependencies outside src folder
+        runCommand(
+          `npm i bcrypt cookie-parser cors dotenv express express-rate-limit express-validator helmet jsonwebtoken mongoose morgan winston`,
+          projectPath
+        );
+      });
+    });
   });
 };
+
+// Prompt user for folder name
+rl.question("Enter folder name: ", (folderName) => {
+  initializeProject(folderName);
+  rl.close();
+});
+
 
 // Prompt user for folder name
 rl.question("Enter folder name: ", (folderName) => {
