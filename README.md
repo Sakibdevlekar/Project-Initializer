@@ -15,7 +15,7 @@ This script automates the setup process for a Node.js project, creating a struct
 - Run the script by entering the following command:
 
 ```javascript
-node initializeProject.js
+npm start
 ```
 
 - Follow the prompts to enter the desired folder name for your project.
@@ -69,11 +69,11 @@ node initializeProject.js
 
 ## 3. Results
 
-![src](image-1.png)
+![src](public/image-1.png)
 
 ### - Inside src folder
 
-![inside src](image.png)
+![inside src](public/image.png)
 
 ## 4. Usage Notes
 
