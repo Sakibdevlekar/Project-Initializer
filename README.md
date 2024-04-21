@@ -2,25 +2,34 @@
 
 This script automates the setup process for a Node.js project, creating a structured folder layout and installing essential dependencies.
 
+## Table of Contents
+
+-   [Prerequisites](#1-prerequisites)
+-   [Getting Started](#2-getting-started)
+-   [Results](#3-results)
+-   [Usage](#4-usage-notes)
+-   [Contributing](#5-contributing)
+-   [Troubleshooting](#6-troubleshooting)
+
 ## 1. Prerequisites
 
-- ### Node.js installed on your system
-- ### npm (Node Package Manager)
+-   ### Node.js installed on your system
+-   ### npm (Node Package Manager)
 
-## 2. Getting Started
+## 2. Getting-Started
 
-- Clone or download this repository to your local machine.
-  Open a terminal window and navigate to the directory where you saved the script.
+-   Clone or download this repository to your local machine.
+    Open a terminal window and navigate to the directory where you saved the script.
 
-- Run the script by entering the following command:
+-   Run the script by entering the following command:
 
 ```javascript
 npm start
 ```
 
-- Follow the prompts to enter the desired folder name for your project.
-  Folder Structure
-  The script will create the following folders within your project directory:
+-   Follow the prompts to enter the desired folder name for your project.
+    Folder Structure
+    The script will create the following folders within your project directory:
 
 #### --> models: For database models.
 
@@ -51,19 +60,19 @@ npm start
 
 #### --> Installing Dependencies
 
-- ### The script will automatically initialize an npm project (npm init -y) and install the following dependencies:
-  bcrypt,
-  cookie-parser,
-  cors,
-  dotenv,
-  express,
-  express-rate-limit,
-  express-validator,
-  helmet,
-  jsonwebtoken,
-  mongoose,
-  morgan,
-  winston,
+-   ### The script will automatically initialize an npm project (npm init -y) and install the following dependencies:
+    bcrypt,
+    cookie-parser,
+    cors,
+    dotenv,
+    express,
+    express-rate-limit,
+    express-validator,
+    helmet,
+    jsonwebtoken,
+    mongoose,
+    morgan,
+    winston,
 
 ### ✨ Upon completing these steps, you will have a meticulously structured folder, named as per your command input, containing all the requisite sub-folders meticulously organized by the script.
 
@@ -80,6 +89,10 @@ npm start
 Ensure that you have a stable internet connection during the script execution for dependency installation.
 Adjust the delay in the script (setTimeout) as needed based on your internet speed for package installation completion.
 
-## 5. Troubleshooting
+## 5. Contributing
 
-If you encounter any issues with the application, refer to the troubleshooting section in the documentation or contact sakibdevlekar96@gmail.com for assistance.
+Contributions are welcome! If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
+
+## 6. Troubleshooting
+
+If you encounter any issues with the application, contact sakibdevlekar96@gmail.com for assistance.
